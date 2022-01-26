@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        /* 
+        background-color: lightblue;
+        border: 1px solid black;
+        border: 1px solid black;
+        border-collapse: collapse;
+        font-size: xx-large;
+        font-style: italic;
+        font-weight: bold;
+        text-align: end;
+        text-shadow: 1px 1px 4px blue;
+        width: 600px; 
+        */
+
+
+        table{
+            border: 1px solid black;
+            width: 600px;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        [data-info*="importante"] {
+            background-color: lightblue;
+            font-size: xx-large;
+        }
+
+        [data-info$="recomendado"] {
+            background-color: lightblue;
+            font-size: xx-large;
+        }
+
+
+
+        [data-info^="costoso"] {
+            text-align: end;
+            font-weight: bold;
+
+        }
+
+        [data-info^="grande"] {
+            text-align: end;
+            font-weight: bold;
+
+        }
+
+
+
+        [data-info~="práctico"] {
+            font-style: italic;
+        }
+
+        [data-info*="novedoso"] {
+            text-shadow: 1px 1px 4px blue;
+        }
+
+       
+
+ 
+        
+    </style>
+</head>
+<body>
+    
+    <ol>
+        <li>Tabla: 600px con borde</li>
+        <li>celdas con borde</li>
+        <li>Para los que tengan importante y terminen en 
+            <ul>
+                <li>cambiar color de fondo</li>
+                <li>tamaño de texto más grande</li>
+            </ul>
+        </li>
+        <li>Para los que inicien en costoso o grande: 
+            <ul>
+                <li>alinear texto a la derecha</li>
+                <li>letra en negritas</li>
+            </ul>
+        </li>
+        <li> Para los que tengan la palabra "práctico" (sin nada extra)
+            <ul>
+                <li>Poner en cursiva </li>
+            </ul>
+        </li>
+        <li>Para los que tengan las letras "novedoso" (puede tener más cosas antes o después)</li>
+            <ul>
+                <li>poner sombra</li>
+            </ul>
+    </ol>
+
+    <table >
+        <tr>
+            <th>Producto</th>
+            <th>Costo</th>
+        </tr>
+        <tr data-info="grande importante costoso">
+            <td>Silla de oficina</td>
+            <td>2400</td>
+        </tr>
+        <tr data-info="práctico importante práctico-3">
+            <td>Teclado</td>
+            <td>400</td>
+        </tr>
+        <tr data-info="práctico recomendado práctico-2">
+            <td>mouse pad</td>
+            <td>50</td>
+        </tr>
+        <tr data-info="novedoso-1 recomendado práctico-1">
+            <td>docking station</td>
+            <td>580</td>
+        </tr>
+        <tr data-info="recomendado novedoso-2 costoso">
+            <td>X Box</td>
+            <td>3500</td>
+        </tr>
+        <tr data-info="costoso grande novedoso-3 importante práctico">
+            <td>Monitor 8K 50 pulgadas</td>
+            <td>4800</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
+

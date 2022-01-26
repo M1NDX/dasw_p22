@@ -1,0 +1,12 @@
+p {
+    text-align: right;
+    color: chartreuse;
+}
+
+.main {
+    background-color: lightgreen;
+}
+
+#p1 {
+    font-size: 40px;
+}
