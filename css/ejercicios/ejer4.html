@@ -8,6 +8,9 @@
     <title>Document</title>
 
     <style>
+
+        /*Ve a la carpeta de ejercicios resueltos*/
+
         td {
             text-align: center;
         }
@@ -16,6 +19,28 @@
             background-color: orangered;
             color: white;
         }
+
+
+        table:first-of-type tr:nth-child(4),
+        table:first-of-type td:nth-child(2)
+        {
+            background-color: lightgreen;
+        }
+
+        table:first-of-type tr:nth-child(1) td:nth-child(3n+1){
+            background-color: lightblue;    
+        }
+
+        table:first-of-type tr:nth-of-type(2) td:nth-of-type(n+4):nth-child(-n+6){
+            background-color: lightsalmon;              
+        }
+
+        table:first-of-type tr:nth-child(2)
+        td:nth-child(n+4):not(td:nth-last-child(1)){
+            background-color: lightcoral;
+        }
+
+        /* body>.ok:hover~li p  */
 
         /* aquí pones tu respuesta */
     </style>

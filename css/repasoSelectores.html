@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso selectores</title>
+
+    <style>
+        input::after {
+            content: '*';
+        }
+
+        body>p::selection, 
+        li::selection{
+            background-color: red;
+        }
+
+        li::selection {
+            color: blue;
+        }
+
+        body > ol li {
+            font-size: 2em;
+        }
+        
+        /* 0+2=2, -1+2=1, -2+2=0,  -1, -2   */
+        ol:nth-last-of-type(-n+2) +p {
+          border: 1px solid red;   
+        }
+
+        li ol ~ p {
+          color: chartreuse;  
+        }
+
+        
+        ol:nth-child(n+5):nth-child(n-3)
+
+
+        /* .activa {
+
+        }
+
+        #main {
+
+        }
+
+        [data-info~="show"]{
+
+        } */
+
+
+        
+
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <h1 id="main">Titulo de la página</h1>
+
+    <input type="checkbox" class="a b activa" data-info="show activar listshow-3 show" name="a" id="a"> 
+    <label for="a">activar/desactivar</label>
+    <ol class="activa">
+        <li>item de lista activa</li>
+        <li>item de lista activa</li>
+        <li>item de lista activa
+
+            <ul>
+                <li>test ul</li>
+            </ul>
+
+        </li>
+    </ol>
+    <span>span</span>
+    <p>párrafo 1 <span>s1</span> </p>
+    <p>párrafo 2 <span>s2</span> </p>
+    <p>párrafo 3 <span>s3</span> </p>
+
+    <ul class="activa">
+        <li>item de lista activa</li>
+        <li>item de lista activa</li>
+        <li>item de lista activa</li>
+    </ul>
+
+
+    <ul>
+        <li>item de lista 
+            <p>párrafo 1 <span>s1</span> </p> 
+            <p>párrafo 2 <span>s2</span> </p>
+        </li>
+        <li>item de lista </li>
+        <li>item de lista
+            <ol>
+                <li>test</li>
+            </ol>
+            <h3>sdfsf</h3>
+            <p>test5</p>
+             </li>
+    </ul>
+
+    <ol>
+        <li>test2</li>
+    </ol>
+    <p>otro</p>
+
+    <ol>
+        <li>
+            list
+        </li>
+    </ol>
+ 
+    <p>test3</p>
+</body>
+</html>
