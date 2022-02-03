@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            border: 0.5px dashed red;
+        }
+
+        h1 {
+            background-color: lightblue;
+            border: 3px solid black;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        p:first-of-type {
+            display: inline-block;
+            width: 40%;
+            padding: 10px 30px 50px 100px;
+        }
+
+        #t2 {
+            display: inline;
+        }
+
+        #t2 span {
+            display: inline-block;
+            width: 100px;
+        }
+
+        div {
+            background-image: url('../img/network.gif');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 60px;
+            border-radius: 40px;
+            width: 90%;
+            margin: auto;
+        }
+
+        button {
+            display: block;
+            border-radius: 20px;
+            margin: auto;
+            padding: 3px 20px;
+            background-color: inherit;
+            color: white;
+            border: 1px solid white;
+            
+        }
+
+        div button:last-of-type {
+            margin-top: 10px;
+        }
+
+        #t2 {
+            display: none;
+        }
+
+        p:first-of-type:hover~p{
+            display: inline !important;
+        }
+        
+
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Mi página</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit porro totam repudiandae. Temporibus dolores et totam quisquam, perspiciatis deserunt, hic fuga reiciendis earum voluptatibus ad vel voluptatum corporis debitis?</p>
+    <p id="t2">texto <span>más texto</span> texto después</p>
+    <div>
+        <button>boton1</button>
+        <button>boton2</button>
+    </div>
+
+
+</body>
+</html>
