@@ -151,7 +151,6 @@ function compareObjects(obj1, obj2) {
 
 }
 
-
 // console.log(compareObjects({a:1},{a:1}))
 console.log(compareObjects(libro3,libro4))
 
