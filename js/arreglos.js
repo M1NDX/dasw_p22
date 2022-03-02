@@ -64,7 +64,8 @@ console.log(lista1992);
 
 function deleteBook(arr, year){
     let pos = arr.findIndex(libro => libro.year == year)
-    arr.splice(pos,1)
+    if(pos >=0)
+         arr.splice(pos,1)
 }
 
 function deleteAll(arr, year){
@@ -85,4 +86,31 @@ console.table(arrLibros2);
 
 deleteAll(arrLibros2,1992)
 console.table(arrLibros2);
+
+let selectBooks = arrLibros2.filter(libro => libro.year < 1995)
+console.table(selectBooks);
+
+console.table(arrLibros2);
+// arrLibros2.push(createLibro("Libro90",["a","b"],1990,"ed90"))
+arrLibros2.sort((libro1,libro2)=> libro2.year-libro1.year)
+console.table(arrLibros2);
+arrLibros2.push(createLibro("c",["a","b"],1990,"ed90"))
+arrLibros2.push(createLibro("a",["a","b"],1990,"ed90"))
+arrLibros2.push(createLibro("b",["a","b"],1990,"ed90"))
+console.table(arrLibros2);
+
+arrLibros2.sort((a,b)=>{
+    if(a.year < b.year) return -1;
+    if(a.year > b.year) return 1;
+    
+    if(a.titulo.toUpperCase() < b.titulo.toUpperCase())  return -1;
+    if(a.titulo.toUpperCase() > b.titulo.toUpperCase())  return 1;
+    
+    return 0;
+
+    
+})
+
+console.table(arrLibros2);
+
 
