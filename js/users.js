@@ -4,7 +4,14 @@ let users = [
     {
         nombre: "Juan" ,
         correo: "j@test.com" ,
-        edad: 23
+        edad: 23,
+        toHTML(){
+            return `<div class="user">
+            <p src="${this._imageUrl}" > nombre: ${this.nombre} </p>
+            <p> correo: ${this.correo} </p>
+            <p> edad: ${this.edad} </p>
+            </div> `
+        }
     },
     {
         nombre: "María" ,
@@ -27,4 +34,18 @@ let res= users.map(user => {
     </div> `;
 }).join('')
 
-lista.innerHTML = res;
+// lista.innerHTML = res;
+
+// function toHTML(){
+//     return ` 
+//     <div class="user">
+//         <p > nombre: ${this.nombre} </p>
+//         <p> correo: ${this.correo} </p>
+//         <p> edad: ${this.edad} </p>
+//     </div> `;
+// }
+
+
+
+
+console.log((users[0]).toHTML())
