@@ -4,10 +4,15 @@
 GET {{host}}/
 
 ###
-GET {{host}}/users
+GET {{host}}/api/users
+x-user: myAdminToken
+
 
 ###
-POST {{host}}/users
+GET {{host}}/api/users?name=J&email=@
+x-user: myAdminToken
+###
+POST {{host}}/api/users
 Content-Type: application/json
 
 {

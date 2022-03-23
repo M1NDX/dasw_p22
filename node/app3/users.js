@@ -3,11 +3,13 @@ const router = express.Router();
 const users = require("./users.json");
 const shortid = require("shortid");
 const fs = require ("fs");
-const {auth} = require("./middlewares/auth")
+const {auth, validarUsuario, requireAdmin} = require("./middlewares/auth")
 
-router.get('/', auth, (req,res)=>{
+router.get('/', validarUsuario, (req,res)=>{
     console.log(req.query);
     console.log(req.userId);
+    
+   
     let {name, username} = req.query;
 
     let filtro = users.slice();
@@ -17,6 +19,13 @@ router.get('/', auth, (req,res)=>{
 
     if(username){
         filtro = filtro.filter(usr => usr.username.toUpperCase().includes(username.toUpperCase()))
+    }
+
+    if(!req.esAdministrador){
+        filtro = filtro.map(usr => {
+            let {username, id, email} = usr;
+            return {username,id, email}
+        } )
     }
 
     res.send(filtro);

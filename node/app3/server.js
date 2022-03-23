@@ -10,7 +10,7 @@ const port = 3000;
 // app.use(logMiddlewares.log);
 app.use(log);
 app.use(express.json()); 
-app.use('/api/users', auth, userRoute);
+app.use('/api/users', userRoute);
 
 app.get('/', (req,res)=>{
     res.status(200).send("Hola DASW");
