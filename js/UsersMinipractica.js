@@ -11,11 +11,19 @@ class User {
     constructor (nombre, correo, edad){
         this.nombre = nombre;
         this.correo = correo;
-        this._edad = edad;
+        this.edad = edad;
         this._id = User._uid;
         User._uid++;
 
         User.users.push(this)
+    }
+
+    toHTML(){
+        return `
+         <div class ="">
+         <p>${this.nombre}</p>
+         </div>
+        `
     }
 
     set id(valId){
@@ -38,6 +46,18 @@ class User {
 
     get edad(){
          return this._edad; 
+    }
+
+    set nombre(val){
+        if(val.trim() == ''){
+            throw new UserException("No se permite nombres vacios")
+        }
+
+        this._nombre = val;
+    }
+
+    get nombre(){
+      return this._nombre;
     }
 
     static createUser(obj){
@@ -83,6 +103,13 @@ class User {
 let user1 = new User("us1","us1@test.com",25);
 let user2 = new User("us2","us2@test.com",29);
 
+try{
+    user1.nombre = "    "
+}catch(e){
+  console.log(e);
+}
+
+
 
 User.createUser({nombre:"test", correo: "t@t", _edad: 34})
 
@@ -94,6 +121,7 @@ try{
 }
 
 user1.edad = 20;
+
 console.log(user1);
 console.log(user1.edad);
 
