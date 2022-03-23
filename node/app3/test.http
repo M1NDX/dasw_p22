@@ -1,0 +1,21 @@
+@host= http://localhost:3000
+
+###
+GET {{host}}/
+
+###
+GET {{host}}/users
+
+###
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "name": "Gianna G",
+    "email":"gianna@test.com",
+    "username": "Gianna"
+}
+
+
+###
+DELETE  {{host}}/users/U2rCEchXr
