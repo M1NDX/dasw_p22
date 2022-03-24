@@ -23,4 +23,6 @@ Content-Type: application/json
 
 
 ###
-DELETE  {{host}}/users/U2rCEchXr
+GET  {{host}}/api/users/owQ1BjQW2
+x-user: myAdminToken
+

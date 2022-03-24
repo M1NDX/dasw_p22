@@ -31,6 +31,7 @@ router.get('/', validarUsuario, (req,res)=>{
     res.send(filtro);
 })
 
+
 router.post('/', (req,res)=>{
     console.log(req.body);
     let newUser = {};
@@ -56,7 +57,7 @@ router.get('/lista', (req,res)=>{
     res.send("en lista")
 })
 
-router.get('/:id', (req,res)=>{
+router.get('/:id', validarUsuario, requireAdmin, (req,res)=>{
     console.log(req.params.id);
     let user = users.find(usr => usr.id == req.params.id)
     if(user){
