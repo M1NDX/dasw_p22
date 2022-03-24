@@ -11,36 +11,51 @@
   </head>
   <body>
     <h1>Users</h1>
-    <div class="row col-4" >
+    
+    <div id="checkButtons"></div>
+
+    <button type="button" class="btn btn-primary mb-3 ml-3" btn-lg btn-block">buscar</button>
+
+    <script>
+      let checkButtons = document.getElementById("checkButtons");
+      let headers = [{
+        field: "username",
+        label: "Nombre de usuario"
+      },
+      {
+        field: "email",
+        label: "Correo electrónico"
+      },
+      {
+        field: "id",
+        label: "Identificador"
+      },
+    ]
+
+    let htmlButtons =  headers.map(header => {
+      return `
+      <div class="row col-6 mt-2" >
       <div class="col">
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="chkUsername" value="checkedValue" checked>
-            Username
+            <input type="checkbox" class="form-check-input" name="chk${header.field}" value="checkedValue" checked>
+            ${header.label}
           </label>
         </div>
       </div>
       <div class="col">
           <input type="text"
-            class="form-control" name="userInput" id="inputUsername" aria-describedby="helpId" placeholder="username">
+            class="form-control" name="userInput" id="input_${header.field}" aria-describedby="helpId" placeholder="Introduce ${header.label}">
          </div>
     </div>
+      `}).join("");
+    
+    checkButtons.innerHTML = htmlButtons;
 
-    <div class="row col-4" >
-      <div class="col">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="chkEmail" value="checkedValue" checked>
-            email
-          </label>
-        </div>
-      </div>
-      <div class="col">
-          <input type="text"
-            class="form-control" name="userInput" id="inputEmail" aria-describedby="helpId" placeholder="email">
-         </div>
-    </div>  
 
+    </script>
+    
+    
 
     <div id="info">
     </div>
@@ -59,9 +74,9 @@
                 <table class="table">
                   <thead class="thead-light">
                   <tr> 
-                    <th> Id </th>
-                    <th> Username </th>
-                    <th> Email </th>
+                    ${headers.map(header =>  `
+                      <th>${header.label}</th>
+                      ` ).join('')}
                   </tr>
                   </thead>
                   ${ users.map(usr => `
