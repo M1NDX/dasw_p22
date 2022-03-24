@@ -11,22 +11,77 @@
   </head>
   <body>
     <h1>Users</h1>
-    <div id="info">
+    <div class="row col-4" >
+      <div class="col">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="chkUsername" value="checkedValue" checked>
+            Username
+          </label>
+        </div>
+      </div>
+      <div class="col">
+          <input type="text"
+            class="form-control" name="userInput" id="inputUsername" aria-describedby="helpId" placeholder="username">
+         </div>
+    </div>
 
+    <div class="row col-4" >
+      <div class="col">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="chkEmail" value="checkedValue" checked>
+            email
+          </label>
+        </div>
+      </div>
+      <div class="col">
+          <input type="text"
+            class="form-control" name="userInput" id="inputEmail" aria-describedby="helpId" placeholder="email">
+         </div>
+    </div>  
+
+
+    <div id="info">
     </div>
 
     <script>
-      fetch('http://localhost:3000/api/users').then((users)=>{
-        users.json().then( resp => {
-          console.log(resp);
-          info.innerHTML = JSON.stringify(resp);
-        })
-      })
+      // fetch('http://localhost:3000/api/users')
+      // .then(response => response.json())
+      // .then(users => info.innerHTML = JSON.stringify(users) );
+
+      async function getUsers(){
+        let resp = await fetch('http://localhost:3000/api/users');
+        let users = await resp.json();
+        let info = document.getElementById("info");
+        info.innerHTML = `
+            <div class="user table" >
+                <table class="table">
+                  <thead class="thead-light">
+                  <tr> 
+                    <th> Id </th>
+                    <th> Username </th>
+                    <th> Email </th>
+                  </tr>
+                  </thead>
+                  ${ users.map(usr => `
+                        <tr>
+                          <td>${usr.id} </td>
+                          <td>${usr.username} </td>
+                          <td>${usr.email} </td>
+                        </tr>
+                  `).join('')}
+                </table>
+            </div>
+        `;       
+      }
+      getUsers();
+     
     </script>
 
-    <div class="test1">test1</div>
+    <div class="test1">div con clase test1</div>
 
-    <h1 class="test1">hola</h1>
+    <h1 class="test1">h1 con clase test1</h1>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
